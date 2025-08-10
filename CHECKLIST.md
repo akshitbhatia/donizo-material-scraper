@@ -73,7 +73,7 @@
 - **Documentation** - Detailed README and inline docs
 - **Demo script** - Easy-to-use demonstration
 
-## 📁 Additional Files Added
+## Additional Files Added
 
 ### Development Tools
 - **requirements.txt** - Python dependencies
