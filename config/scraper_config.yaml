@@ -1,0 +1,92 @@
+# Donizo Material Scraper Configuration
+
+# Target suppliers
+suppliers:
+  leroy_merlin:
+    name: "Leroy Merlin"
+    base_url: "https://www.leroymerlin.fr"
+    search_url: "https://www.leroymerlin.fr/recherche?q={query}"
+    categories:
+      tiles:
+        search_terms: ["carrelage", "faïence", "mosaïque"]
+        url_path: "/carrelage-faience-mosaique"
+      sinks:
+        search_terms: ["évier", "lavabo"]
+        url_path: "/eviers-lavabos"
+      toilets:
+        search_terms: ["wc", "toilettes", "sanitaires"]
+        url_path: "/wc-toilettes-sanitaires"
+      paint:
+        search_terms: ["peinture", "enduit"]
+        url_path: "/peintures-enduits"
+      vanities:
+        search_terms: ["meuble salle de bain", "meuble vasque"]
+        url_path: "/meubles-salle-de-bain"
+      showers:
+        search_terms: ["douche", "cabine de douche"]
+        url_path: "/douches-cabines"
+
+  castorama:
+    name: "Castorama"
+    base_url: "https://www.castorama.fr"
+    search_url: "https://www.castorama.fr/recherche?q={query}"
+    categories:
+      tiles:
+        search_terms: ["carrelage", "faïence"]
+        url_path: "/carrelage-faience"
+      sinks:
+        search_terms: ["évier", "lavabo"]
+        url_path: "/eviers-lavabos"
+      toilets:
+        search_terms: ["wc", "toilettes"]
+        url_path: "/wc-toilettes"
+      paint:
+        search_terms: ["peinture", "enduit"]
+        url_path: "/peintures-enduits"
+      vanities:
+        search_terms: ["meuble salle de bain"]
+        url_path: "/meubles-salle-de-bain"
+      showers:
+        search_terms: ["douche", "cabine"]
+        url_path: "/douches-cabines"
+
+# Scraping settings
+scraping:
+  max_products_per_category: 50
+  delay_between_requests: 2  # seconds
+  timeout: 30  # seconds
+  max_retries: 3
+  user_agent_rotation: true
+  
+# Output settings
+output:
+  format: "json"  # or "csv"
+  include_timestamp: true
+  include_screenshots: false
+  compress_output: false
+
+# Browser settings (for Selenium)
+browser:
+  headless: true
+  window_size: "1920x1080"
+  implicit_wait: 10
+
+# Data structure settings
+data_structure:
+  required_fields:
+    - product_name
+    - category
+    - price
+    - currency
+    - product_url
+    - supplier
+    - timestamp
+  
+  optional_fields:
+    - brand
+    - measurement_unit
+    - pack_size
+    - image_url
+    - availability
+    - description
+    - sku
